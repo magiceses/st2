@@ -117,3 +117,7 @@ def get_trigger_instances_queue(name, routing_key):
 
 def get_sensor_cud_queue(name, routing_key):
     return Queue(name, SENSOR_CUD_XCHG, routing_key=routing_key)
+
+
+def get_sensor_cud_queue_with_auto_delete(name, routing_key, auto_delete=True):
+    return Queue(name, SENSOR_CUD_XCHG, routing_key=routing_key, auto_delete=auto_delete)

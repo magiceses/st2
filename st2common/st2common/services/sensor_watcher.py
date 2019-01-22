@@ -117,4 +117,5 @@ class SensorWatcher(ConsumerMixin):
                                                 queue_name_suffix=queue_suffix,
                                                 add_random_uuid_to_suffix=True
                                                 )
-        return reactor.get_sensor_cud_queue(queue_name, routing_key='#')
+        # return reactor.get_sensor_cud_queue(queue_name, routing_key='#')
+        return reactor.get_sensor_cud_queue_with_auto_delete(queue_name, routing_key='#', auto_delete=True)
