@@ -1,11 +1,11 @@
 # Packages versions fixed for the whole st2 stack
 # Note: greenlet is used by eventlet
-greenlet==0.4.12
+greenlet==0.4.15
 # Note: 0.20.0 removed select.poll() on which some of our code and libraries we
 # depend on rely
-eventlet==0.19.0
+eventlet==0.24.1
 gunicorn==19.7.1
-kombu==4.1.0
+kombu==4.2.1
 # Note: amqp is used by kombu
 amqp==2.2.2
 oslo.config>=1.12.1,<1.13
