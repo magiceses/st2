@@ -129,6 +129,10 @@ class StandaloneAuthHandler(AuthHandlerBase):
         self._auth_backend = get_backend_instance(name=cfg.CONF.auth.backend)
         super(StandaloneAuthHandler, self).__init__(*args, **kwargs)
 
+    def getTokenId(self, request):
+        token = getattr(request, 'tokenId', None)
+        return token
+
     def handle_auth(self, request, headers=None, remote_addr=None, remote_user=None,
                     authorization=None, **kwargs):
         auth_backend = self._auth_backend.__class__.__name__
@@ -162,7 +166,10 @@ class StandaloneAuthHandler(AuthHandlerBase):
 
         username, password = split
 
-        result = self._auth_backend.authenticate(username=username, password=password)
+        request_token = self.getTokenId(request)
+        result = self._auth_backend.authenticate(username=username,
+                                                 password=password,
+                                                 tokenId=request_token)
 
         if result is True:
             ttl = getattr(request, 'ttl', None)
