@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import distutils.sysconfig
 import os
 import sys
 
@@ -27,6 +28,7 @@ if __name__ == '__main__':
     script_path = sys.path[0]
     if RUNNERS_PATH_SUFFIX in script_path:
         sys.path.pop(0)
+        sys.path.insert(0, distutils.sysconfig.get_python_lib())
 
 import sys
 import json
