@@ -14,6 +14,7 @@ six==1.10.0
 pyyaml>=3.12,<4.0
 requests[security]>=2.14.1,<2.15
 apscheduler==3.4.0
+gitdb==0.6.4
 gitpython==2.1.7
 jsonschema==2.6.0
 # Note: mongoengine v0.13.0 introduces memory usage regression so we can't

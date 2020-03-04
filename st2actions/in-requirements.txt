@@ -12,7 +12,8 @@ six
 pyyaml
 python-json-logger
 # needed by core "packs" pack
-gitpython
+gitdb==0.6.4
+gitpython==2.1.7
 lockfile
 # needed by core "linux" pack - TODO: create virtualenv for linux pack on postinst
 pyinotify
